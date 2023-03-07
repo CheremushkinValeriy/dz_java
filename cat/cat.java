@@ -4,7 +4,7 @@
 в) информационной системой Театра кошек Ю. Д. Куклачёва
 Можно записать в текстовом виде, не обязательно реализовывать в java.*/
 
-package Task15;
+package cat;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
