@@ -1,37 +1,30 @@
 package game.Units;
 
+import game.Class.ShooterClass;
+
 //снайпер
-public class Sniper extends ShooterClass{
+public class Sniper extends ShooterClass {
 
-    public Sniper(float hp, int speed, int damage, int shells) {
-        super(hp, speed, damage, shells);
-    }
-    
-
-
-    // public float getHp() {
-	// 	return hp;
+	// public Sniper(float hp, int speed, int damage, int shells) {
+	// super(hp, speed, damage, shells);
 	// }
 
-	// public int getSpeed() {
-	// 	return speed;
+	public Sniper() {
+		super(25, 25, 25, 25);
+	}
+
+	// public void shot(){
+	// System.out.println("Бум");
 	// }
 
-	// public int getDamage() {
-	// 	return damage;
-	// }
+	@Override
+	public void step() {
+		System.out.println("Снайпер выстрелил!");
+	}
 
-	// public void setHp(float hp) {
-	// 	this.hp = hp;
-	// }
-
-	// public void setSpeed(int speed) {
-	// 	if (speed >= 0)
-	// 		this.speed = speed;
-	// }
-
-	// public void setDamage(int damage) {
-	// 	this.damage = damage;
-	// }
+	@Override
+	public String getInfo() {
+		return "Sniper";
+	}
 
 }
