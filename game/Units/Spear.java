@@ -10,17 +10,17 @@ public class Spear extends ShooterClass {
     // }
 
     public Spear() {
-        super(30f, 30, 30, 30);
+        super(30f, 30, 30, 30, 30);
     }
 
     // public void shot(){
 	// 	System.out.println("Бум");
 	// }
 
-    @Override
-    public void step() {
-        System.out.println("Копейщик кинул копьё!");
-    }
+    // @Override
+    // public void step() {
+    //     System.out.println("Копейщик кинул копьё!");
+    // }
 
     @Override
     public String getInfo() {

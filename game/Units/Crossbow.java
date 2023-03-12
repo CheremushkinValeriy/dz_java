@@ -10,17 +10,17 @@ public class Crossbow extends ShooterClass {
     // }
 
     public Crossbow() {
-        super(50f, 50, 50, 50);
+        super(50f, 50, 50, 50, 50);
     }
 
     // public void shot(){
     // System.out.println("Бум");
     // }
 
-    @Override
-    public void step() {
-        System.out.println("Арбалетчик выстрелил!");
-    }
+    // @Override
+    // public void step() {
+    //     System.out.println("Арбалетчик выстрелил!");
+    // }
 
     @Override
     public String getInfo() {

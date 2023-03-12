@@ -31,9 +31,21 @@
  * В main пройти по спискам и вызвать у всех персонажей getInfo.
  */
 
+ /**
+ СЕМЕНАР №3
+ В материалы добавил xml с полями и параметрами по умолчанию. Убедиться что у вас все поля описанны. Создать в основной программе два списка. Положить в них по 10 случайных персонажей. В первом только крестьянин, разбойник, снайпер или колдун. Во втором крестьянин, копейщик, арбалетчик, монах. Вывести в консоль информацию обо всех персонажах не зависимо от списка, очередь должна определяться скоростью каждого персонажа.
+Начать реализацию метода step у лучников.
+1. Если жизнь равна нулю или стрел нет, завершить оьработку.
+2. Поиск среди противников наиболее приближённого.
+3. Нанести среднее повреждение найденному противнику.
+4. Найти среди своих крестьянина.
+5. Если найден завершить метод иначе уменьшить запас стрел на одну.
+Степ лучника будет доделовать на следующем саминаре!)*/
+
 package game;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 
 import game.Class.UnitClass;
@@ -61,6 +73,7 @@ public class Main {
         ArrayList<UnitClass> list4 = new ArrayList<>();
         ArrayList<UnitClass> list5 = new ArrayList<>();
         ArrayList<UnitClass> list6 = new ArrayList<>();
+        ArrayList<UnitClass> list7 = new ArrayList<>();
 
         // list.add(new Crossbow());
         // list.add(new Mag());
@@ -69,8 +82,6 @@ public class Main {
         // list.add(new Robber());
         // list.add(new Sniper());
         // list.add(new Spear());
-
-        
 
         for (int i = 0; i < 6; i++) {
             switch (new Random().nextInt(7)) {
@@ -190,7 +201,7 @@ public class Main {
             }
             switch (new Random().nextInt(7)) {
                 case 0:
-                    list1.add(new Crossbow());
+                    list6.add(new Crossbow());
                     break;
                 case 1:
                     list6.add(new Mag());
@@ -211,14 +222,70 @@ public class Main {
                     list6.add(new Spear());
                     break;
             }
-
+            switch (new Random().nextInt(7)) {
+                case 0:
+                    list7.add(new Crossbow());
+                    break;
+                case 1:
+                    list7.add(new Mag());
+                    break;
+                case 2:
+                    list7.add(new Monk());
+                    break;
+                case 3:
+                    list7.add(new Peasant());
+                    break;
+                case 4:
+                    list7.add(new Robber());
+                    break;
+                case 5:
+                    list7.add(new Sniper());
+                    break;
+                case 6:
+                    list7.add(new Spear());
+                    break;
+            }
         }
-        list1.forEach(u -> u.step());
-        list2.forEach(u -> u.step());
-        list3.forEach(u -> u.step());
-        list4.forEach(u -> u.step());
-        list5.forEach(u -> u.step());
-        list6.forEach(u -> u.step());
+
+        // list1.forEach(u -> u.step());
+        // list2.forEach(u -> u.step());
+        // list3.forEach(u -> u.step());
+        // list4.forEach(u -> u.step());
+        // list5.forEach(u -> u.step());
+        // list6.forEach(u -> u.step());
+
+        ArrayList<UnitClass> allUnits = new ArrayList<>();
+
+        allUnits.addAll(list1);
+        allUnits.addAll(list2);
+        allUnits.addAll(list3);
+        allUnits.addAll(list4);
+        allUnits.addAll(list5);
+        allUnits.addAll(list6);
+        allUnits.addAll(list7);
+
+        allUnits.sort(new Comparator<UnitClass>() {
+            @Override 
+            public int compare (UnitClass u1, UnitClass u2){
+                if(u1.getSpeed() == u2.getSpeed())
+                    return 0;
+                else if (u1.getSpeed() > u2.getSpeed())
+                    return 1;
+                else return -1;
+            }
+        });
+        System.out.println(allUnits);
+
+        list6.forEach(u -> u.step(allUnits));
+
+
+
+
     }
+
+
+
+
+
 
 }

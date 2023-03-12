@@ -10,17 +10,17 @@ public class Monk extends MagesClass {
     // }
 
     public Monk() {
-        super(15, 15, 15, 15);
+        super(15, 15, 15, 15, 15);
     }
     
     // public void cast(){
 	// 	System.out.println("Бум");
 	// }
 
-    @Override
-    public void step() {
-        System.out.println("Монах выпил воды!");
-    }
+    // @Override
+    // public void step() {
+    //     System.out.println("Монах выпил воды!");
+    // }
 
     @Override
     public String getInfo() {

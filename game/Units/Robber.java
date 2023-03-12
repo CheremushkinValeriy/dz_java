@@ -10,17 +10,17 @@ public class Robber extends WolkerClass {
     // }
 
     public Robber() {
-        super(40, 40, 40, 40);
+        super(40, 40, 40, 40, 40);
     }
 
     // public void step(){
 	// 	System.out.println("Топ");
 	// }
 
-    @Override
-    public void step() {
-        System.out.println("Разбойник прыгнул!");
-    }
+    // @Override
+    // public void step() {
+    //     System.out.println("Разбойник прыгнул!");
+    // }
 
     @Override
     public String getInfo() {
