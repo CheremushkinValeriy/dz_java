@@ -1,17 +1,25 @@
 package game.Units;
 
-import game.Class.WolkerClass;
+import game.Class.ShooterUnit;
 
-           //разбойник
-public class Robber extends WolkerClass {
+
+           
+public class Robber extends ShooterUnit {   //разбойник
+
+    public Robber(String name, int x, int y) {
+        super(12, 10, 4, 10f, 6, 0, name, x, y);
+    }
+    
+
+
+
+    
 
     // public Robber(float hp, int speed, int damage, int endurance) {
     //     super(hp, speed, damage, endurance);
     // }
 
-    public Robber() {
-        super(40, 40, 40, 40, 40);
-    }
+
 
     // public void step(){
 	// 	System.out.println("Топ");

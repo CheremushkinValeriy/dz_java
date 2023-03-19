@@ -1,17 +1,16 @@
 package game.Units;
 
-import game.Class.WolkerClass;
+import game.Class.WolkerUnit;
 
-           //крестьянин
-public class Peasant extends WolkerClass {
+public class Peasant extends WolkerUnit {  //крестьянин
 
-    // public Peasant(float hp, int speed, int damage, int endurance) {
-    //     super(hp, speed, damage, endurance);
-    // }
-
-    public Peasant() {
-        super(20, 20, 20, 20, 20);
+    public Peasant(String name, int x, int y) {
+        super(1, 1, 1, 1, 3, 1, name, x, y);
     }
+
+    
+    
+
 
     // public void step(){
 	// 	System.out.println("Топ");

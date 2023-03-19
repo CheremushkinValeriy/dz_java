@@ -1,16 +1,12 @@
 package game.Units;
 
-import game.Class.ShooterClass;
+import game.Class.ShooterUnit;
 
-//снайпер
-public class Sniper extends ShooterClass {
 
-	// public Sniper(float hp, int speed, int damage, int shells) {
-	// super(hp, speed, damage, shells);
-	// }
+public class Sniper extends ShooterUnit {   //снайпер
 
-	public Sniper() {
-		super(25, 25, 25, 25, 25);
+	public Sniper(String name, int x, int y) {
+		super(12, 10, 32, 10, 15, 9, name, x, y);
 	}
 
 	// public void shot(){

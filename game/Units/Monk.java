@@ -1,17 +1,24 @@
 package game.Units;
 
-import game.Class.MagesClass;
+import game.Class.MagesUnit;
 
-           //монах
-public class Monk extends MagesClass {
+public class Monk extends MagesUnit {    //монах
+
+    public Monk(String name, int x, int y) {
+        super(12, 7, 4, 30f, 5, 1, name, x, y);
+    }
+
+
+
+    
 
     // public Monk(float hp, int speed, int damage, int magic) {
     //     super(hp, speed, damage, magic);
     // }
 
-    public Monk() {
-        super(15, 15, 15, 15, 15);
-    }
+    // public Monk() {
+    //     super(15, 15, 15, 15, 15);
+    // }
     
     // public void cast(){
 	// 	System.out.println("Бум");

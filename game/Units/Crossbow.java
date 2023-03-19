@@ -1,26 +1,16 @@
 package game.Units;
 
-import game.Class.ShooterClass;
+import game.Class.ShooterUnit;
 
-           //арбалетчик
-public class Crossbow extends ShooterClass {
-
-    // public Crossbow(float hp, int speed, int damage, int shells) {
-    // super(hp, speed, damage, shells);
-    // }
-
-    public Crossbow() {
-        super(50f, 50, 50, 50, 50);
+public class Crossbow extends ShooterUnit {   //арбалетчик
+    
+    public Crossbow(String name, int x, int y) {
+        super(6, 3, 4, 10f, 4, 10, name, x, y);
     }
 
-    // public void shot(){
-    // System.out.println("Бум");
-    // }
 
-    // @Override
-    // public void step() {
-    //     System.out.println("Арбалетчик выстрелил!");
-    // }
+
+
 
     @Override
     public String getInfo() {

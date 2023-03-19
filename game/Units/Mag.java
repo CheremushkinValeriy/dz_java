@@ -1,16 +1,11 @@
 package game.Units;
 
-import game.Class.MagesClass;
+import game.Class.MagesUnit;
 
-           //колдун
-public class Mag extends MagesClass {
+public class Mag extends MagesUnit {     //колдун
 
-    // public Mag(float hp, int speed, int damage, int magic) {
-    // super(hp, speed, damage, magic);
-    // }
-
-    public Mag() {
-        super(10f, 10, 10, 10, 10);
+        public Mag(String name, int x, int y) {
+            super(12, 12, 5, 30f, 9, 1, name, x, y);
     }
 
     // public void cast() {
@@ -21,6 +16,8 @@ public class Mag extends MagesClass {
     // public void step() {
     //     System.out.println("Колдун произнес заклинание!");
     // }
+
+ 
 
     @Override
     public String getInfo() {

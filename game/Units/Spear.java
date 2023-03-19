@@ -1,17 +1,14 @@
 package game.Units;
 
-import game.Class.ShooterClass;
+import game.Class.ShooterUnit;
 
-           //копейщик
-public class Spear extends ShooterClass {
+           
+public class Spear extends ShooterUnit {    //копейщик
 
-    // public Spear(float hp, int speed, int damage, int shells) {
-    //     super(hp, speed, damage, shells);
-    // }
-
-    public Spear() {
-        super(30f, 30, 30, 30, 30);
+    public Spear(String name, int x, int y) {
+        super(4, 5,2, 10f, 4, 0, name, x, y);
     }
+
 
     // public void shot(){
 	// 	System.out.println("Бум");
