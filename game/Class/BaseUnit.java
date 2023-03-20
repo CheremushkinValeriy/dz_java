@@ -34,7 +34,7 @@ public abstract class BaseUnit implements UnitInterface { // этот класс
     }
 
     @Override // прописываем заглушку
-    public void step(ArrayList<BaseUnit> team, ArrayList<BaseUnit> team2) {
+    public void step(ArrayList<BaseUnit> list1, ArrayList<BaseUnit> list2) {
         System.out.println("Шаг");
     }
 

@@ -7,40 +7,38 @@ public abstract class ShooterUnit extends BaseUnit { // если класс яв
 
     protected int shot; // заряд/ стрелы
 
-    public ShooterUnit(int attack, int protection, int damage, float hp, int speed, int shot, String name, int x, int y) {
+    public ShooterUnit(int attack, int protection, int damage, float hp, int speed, int shot, String name, int x,
+            int y) {
         super(attack, protection, damage, hp, speed, name, x, y);
         this.shot = shot;
     }
 
     @Override // метод переопределен в супер классе
-    public void step(ArrayList<BaseUnit> team, ArrayList<BaseUnit> team2) {
+    public void step(ArrayList<BaseUnit> list1, ArrayList<BaseUnit> list2) {
         if (!state.equals("Die") && shot == 0) {
             System.out.println("Выстрел!");
+            for (BaseUnit unit : list2) {
+                if (unit.hp > 0) {
+                    this.attack(unit, this.damage);
+                    this.shot--;
+                    break;
+                } else {
+                    System.out.println("пропустить шаг");
+                }
+            }
+            System.out.println(toString());
+            for (BaseUnit unit : list2) {
+                if (unit.getInfo().equals("Peasant")) {
+                    this.speed++;
+                    break;
+                }
+
+            }
         }
+
     }
 
-    // @Override
-    // public void step(ArrayList< BaseUnit> team) {
-    // if (this.arrows > 0 && this.hp > 0) {
-    // System.out.println("Могу стрелять!");
-    // for ( BaseUnit unit : team) {
-    // if (unit.hp > 0) {
-    // this.attack(unit, this.damage);
-    // this.arrows--;
-    // break;
-    // }
-    // }
-    // }
-    // System.out.println("Осталось стрел:" + String.valueOf(this.arrows));
-
-    // for ( UnitClass unit) {
-    // if (unit.getInfo().equals("Peasant")) {
-    // this.arrows++;
-    // break;
-    // }
-    // }
-    // System.out.println("Осталось стрел:" + String.valueOf(this.arrows));
-
-    // }
+    private void attack(BaseUnit unit, int damage) {
+    }
 
 }

@@ -12,7 +12,7 @@ public abstract class MagesUnit extends BaseUnit {
     }
 
     @Override // метод переопределен в супер классе
-    public void step(ArrayList<BaseUnit> team, ArrayList<BaseUnit> team2) {
+    public void step(ArrayList<BaseUnit> list1, ArrayList<BaseUnit> list2) {
         // if (!state.equals("Die") && magic == 0) {
         //     System.out.println("Магия");
         // }

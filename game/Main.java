@@ -98,6 +98,19 @@ public class Main {
             }
         }
 
+        System.out.println("-------------\n   LIST 1:");
+        for (BaseUnit unit : list1) {
+            System.out.printf(String.format("%s --- ", unit.getInfo()));
+            unit.getName();
+        }
+
+        System.out.println("-------------\n   LIST 2:");
+        for (BaseUnit unit : list2) {
+            System.out.printf(String.format("%s --- ", unit.getInfo()));
+            unit.getName();
+        }
+
+
         allList.addAll(list1);
         allList.addAll(list2);
 
@@ -116,8 +129,16 @@ public class Main {
         });
         System.out.println(allList); // list после сортировки
 
-        list2.forEach(u -> u.step(list1, allList));
-        list1.forEach(u -> u.step(list2, allList));
+        // list2.forEach(u -> u.step(list1, allList));
+        list1.forEach(u -> u.step(list2, list1));
+
+        for (BaseUnit unit : list1) {
+            System.out.printf("%d, %d\n", unit.position.x, unit.position.y);
+        }
+    
+        for (BaseUnit unit : list2) {
+            System.out.printf("%d, %d\n", unit.position.x, unit.position.y);
+        }
 
 
     }
@@ -127,6 +148,8 @@ public class Main {
         // рандомно выбираем имя из списка
                                                                                     
     }
+
+
 
 }
 
