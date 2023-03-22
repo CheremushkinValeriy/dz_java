@@ -61,58 +61,61 @@ import game.Units.Spear;
 
 public class Main {
 
-    public static final int UNIT = 10;
+    public static final int GANG_SIZE = 10;
+    public static ArrayList<BaseUnit> whiteSide = new ArrayList<>(); // В первом только крестьянин, разбойник, снайпер или колдун
+    public static ArrayList<BaseUnit> darkSide = new ArrayList<>(); // Во втором крестьянин, копейщик, арбалетчик, монах.
+
     public static void main(String[] args) {
-        ArrayList<BaseUnit> list1 = new ArrayList<>(); // В первом только крестьянин, разбойник, снайпер или колдун
-        ArrayList<BaseUnit> list2 = new ArrayList<>(); // Во втором крестьянин, копейщик, арбалетчик, монах.
+        
+        
         ArrayList<BaseUnit> allList = new ArrayList<>(); // общий список для сортирвки по скорости
 
-        for (int i = 0; i < UNIT; i++) { // заполнение list1
+        for (int i = 0; i < GANG_SIZE; i++) { // заполнение whiteSide
             switch (new Random().nextInt(4)) {
                 case 0:
-                    list1.add(new Peasant(getName(), i+1, 1));
+                    whiteSide.add(new Peasant(getName(), i+1, 1));
                     break;
                 case 1:
-                    list1.add(new Robber(getName(), i+1, 1));
+                    whiteSide.add(new Robber(getName(), i+1, 1));
                     break;
                 case 2:
-                    list1.add(new Sniper(getName(), i+1, 1));
+                    whiteSide.add(new Sniper(getName(), i+1, 1));
                     break;
                 default:
-                    list1.add(new Mag(getName(), i+1, 1));
+                    whiteSide.add(new Mag(getName(), i+1, 1));
                     break;
             }
-            switch (new Random().nextInt(4)) {  // заполнение list2
+            switch (new Random().nextInt(4)) {  // заполнение darkSide
                 case 0:
-                    list2.add(new Peasant(getName(), i+1, 10));
+                 darkSide.add(new Peasant(getName(), i+1, 10));
                     break;
                 case 1:
-                    list2.add(new Spear(getName(), i+1, 10));
+                 darkSide.add(new Spear(getName(), i+1, 10));
                     break;
                 case 2:
-                    list2.add(new Crossbow(getName(), i+1, 10));
+                 darkSide.add(new Crossbow(getName(), i+1, 10));
                     break;
                 default:
-                    list2.add(new Monk(getName(), i+1, 10));
+                 darkSide.add(new Monk(getName(), i+1, 10));
                     break;
             }
         }
 
         System.out.println("-------------\n   LIST 1:");
-        for (BaseUnit unit : list1) {
+        for (BaseUnit unit : whiteSide) {
             System.out.printf(String.format("%s --- ", unit.getInfo()));
             unit.getName();
         }
 
         System.out.println("-------------\n   LIST 2:");
-        for (BaseUnit unit : list2) {
+        for (BaseUnit unit : darkSide) {
             System.out.printf(String.format("%s --- ", unit.getInfo()));
             unit.getName();
         }
 
 
-        allList.addAll(list1);
-        allList.addAll(list2);
+        allList.addAll(whiteSide);
+        allList.addAll(darkSide);
 
         System.out.println(allList); // list до сортировки
 
@@ -129,27 +132,23 @@ public class Main {
         });
         System.out.println(allList); // list после сортировки
 
-        // list2.forEach(u -> u.step(list1, allList));
-        list1.forEach(u -> u.step(list2, list1));
+        whiteSide.forEach(u -> u.step (darkSide, whiteSide));
 
-        for (BaseUnit unit : list1) {
-            System.out.printf("%d, %d\n", unit.position.x, unit.position.y);
-        }
+        // for (BaseUnit unit : whiteSide) {
+        //     System.out.printf("%d, %d\n", unit.position.x, unit.position.y);
+        // }
     
-        for (BaseUnit unit : list2) {
-            System.out.printf("%d, %d\n", unit.position.x, unit.position.y);
-        }
+        // for (BaseUnit unit : darkSide) {
+        //     System.out.printf("%d, %d\n", unit.position.x, unit.position.y);
+        // }
 
 
     }
 
     private static String getName() {
-        return Names.values()[new Random().nextInt(Names.values().length)].toString(); 
+        return Names.values()[new Random().nextInt(Names.values().length)].toString();
         // рандомно выбираем имя из списка
-                                                                                    
+
     }
 
-
-
 }
-

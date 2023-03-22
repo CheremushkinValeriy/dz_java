@@ -18,7 +18,7 @@ public abstract class ShooterUnit extends BaseUnit { // если класс яв
         if (!state.equals("Die") && shot == 0) {
             System.out.println("Выстрел!");
             for (BaseUnit unit : list2) {
-                if (unit.hp > 0) {
+                if (unit.getHp() > 0) {
                     this.attack(unit, this.damage);
                     this.shot--;
                     break;

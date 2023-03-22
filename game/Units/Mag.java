@@ -8,19 +8,13 @@ public class Mag extends MagesUnit {     //колдун
             super(12, 12, 5, 30f, 9, 1, name, x, y);
     }
 
-    // public void cast() {
-    //     System.out.println("Бум");
-    // }
-
-    // @Override
-    // public void step() {
-    //     System.out.println("Колдун произнес заклинание!");
-    // }
-
- 
-
     @Override
     public String getInfo() {
+        return "Mag";
+    }
+
+    @Override
+    public String getName() {
         return "Mag";
     }
 

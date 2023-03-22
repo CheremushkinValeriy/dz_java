@@ -8,12 +8,13 @@ public class Crossbow extends ShooterUnit {   //арбалетчик
         super(6, 3, 4, 10f, 4, 10, name, x, y);
     }
 
-
-
-
-
     @Override
     public String getInfo() {
+        return "Crossbow";
+    }
+
+    @Override
+    public String getName() {
         return "Crossbow";
     }
 

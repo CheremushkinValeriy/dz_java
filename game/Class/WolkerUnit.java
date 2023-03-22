@@ -7,7 +7,7 @@ public abstract class WolkerUnit extends BaseUnit {
     protected int delivery;
 
     public WolkerUnit(int attack, int protection, int damage, float hp, int speed, int delivery, String name, int x, int y) {
-        super(attack, protection, damage, hp, speed, name, x, y);
+        super(attack, protection, damage, hp,speed, name, x, y);
         this.delivery = delivery;
     }
 

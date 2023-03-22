@@ -15,4 +15,8 @@ public class Position {
 
     }
 
+    public boolean isEquals(Position position) {
+        return (position.x == this.x & position.y == this.y);
+    }
+
 }

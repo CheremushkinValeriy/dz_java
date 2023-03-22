@@ -9,16 +9,6 @@ public class Spear extends ShooterUnit {    //копейщик
         super(4, 5,2, 10f, 4, 0, name, x, y);
     }
 
-
-    // public void shot(){
-	// 	System.out.println("Бум");
-	// }
-
-    // @Override
-    // public void step() {
-    //     System.out.println("Копейщик кинул копьё!");
-    // }
-
     @Override
     public String getInfo() {
         return "Spear";
