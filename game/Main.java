@@ -67,21 +67,59 @@ public class Main {
                                                                      // или колдун
     public static ArrayList<BaseUnit> darkSide = new ArrayList<>(); // Во втором крестьянин, копейщик, арбалетчик,
                                                                     // монах.
-
-    // public static void main(String[] args) {
-    // Scanner sc = new Scanner(System.in);
-    // Init();
-
-    // while(true){
-    // ConsoleView.view();
-    // sc.nextLine();
-    // step();
-    // }
-    // }
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Init();
 
-        ArrayList<BaseUnit> allList = new ArrayList<>(); // общий список для сортирвки по скорости
+        while(true){
+            ConsoleView.view();
+            sc.nextLine();
+            step();
+        }
+    }
 
+        
+       
+        // ConsoleView.view();
+
+        // System.out.println("-------------\n   LIST 1:");
+        // for (BaseUnit unit : whiteSide) {
+        //     System.out.printf(String.format("%s --- ", unit.getInfo()));
+        //     unit.getName();
+        // }
+
+        // System.out.println("-------------\n   LIST 2:");
+        // for (BaseUnit unit : darkSide) {
+        //     System.out.printf(String.format("%s --- ", unit.getInfo()));
+        //     unit.getName();
+        // }
+
+
+
+        // System.out.println(allList); // list до сортировки
+
+
+        // System.out.println(allList); // list после сортировки
+
+        // whiteSide.forEach(u -> u.step(darkSide, whiteSide));
+
+        // for (BaseUnit unit : whiteSide) {
+        //     System.out.printf("%d, %d\n", unit.position.x, unit.position.y);
+        // }
+
+        // for (BaseUnit unit : darkSide) {
+        //     System.out.printf("%d, %d\n", unit.position.x, unit.position.y);
+        // }
+
+    // }
+
+    private static String getName() {
+        return Names.values()[new Random().nextInt(Names.values().length)].toString();
+        // рандомно выбираем имя из списка
+
+    }
+
+    public static void Init(){
         for (int i = 0; i < GANG_SIZE; i++) { // заполнение whiteSide
             switch (new Random().nextInt(4)) {
                 case 0:
@@ -112,24 +150,13 @@ public class Main {
                     break;
             }
         }
-        ConsoleView.view();
+    }
 
-        System.out.println("-------------\n   LIST 1:");
-        for (BaseUnit unit : whiteSide) {
-            System.out.printf(String.format("%s --- ", unit.getInfo()));
-            unit.getName();
-        }
-
-        System.out.println("-------------\n   LIST 2:");
-        for (BaseUnit unit : darkSide) {
-            System.out.printf(String.format("%s --- ", unit.getInfo()));
-            unit.getName();
-        }
-
+    public static void step(){
+        ArrayList<BaseUnit> allList = new ArrayList<>(); // общий список для сортирвки по скорости
+        
         allList.addAll(whiteSide);
         allList.addAll(darkSide);
-
-        System.out.println(allList); // list до сортировки
 
         allList.sort(new Comparator<BaseUnit>() { // реализация сортировки
             @Override
@@ -142,24 +169,15 @@ public class Main {
                     return -1;
             }
         });
-        System.out.println(allList); // list после сортировки
 
-        whiteSide.forEach(u -> u.step(darkSide, whiteSide));
-
-        for (BaseUnit unit : whiteSide) {
-            System.out.printf("%d, %d\n", unit.position.x, unit.position.y);
+        for (BaseUnit unit : allList) {
+            if (darkSide.contains(unit)) {
+                unit.step(whiteSide, darkSide);
+            } else
+                unit.step(darkSide, whiteSide);
         }
-
-        for (BaseUnit unit : darkSide) {
-            System.out.printf("%d, %d\n", unit.position.x, unit.position.y);
-        }
-
     }
 
-    private static String getName() {
-        return Names.values()[new Random().nextInt(Names.values().length)].toString();
-        // рандомно выбираем имя из списка
-
-    }
+    
 
 }

@@ -47,13 +47,19 @@ public abstract class BaseUnit implements UnitInterface { // этот класс
     public void step(ArrayList<BaseUnit> list1, ArrayList<BaseUnit> list2) {
         System.out.println("Шаг");
     }
-
+    // System.out.printf("sum: %s + %s = %s ", num1, num2, num1 + num2);
     @Override
     public String getInfo() {
-        String outStr = String.format("\t%-3s\t⚔️ %-3d\t\uD83D\uDEE1 %-3d\t♥️%-3d%%\t☠️%-3d\t ",
-                0, attack, (int) getHp() * 100 / maxHp, damage);
+        String outStr = String.format("%t, %t, %t" ,  attack, maxHp, damage);
         return outStr;
     }
+    // @Override
+    // public String getInfo() {
+    //     String outStr = String.format("\t%-3s\t⚔️ %-3d\t\uD83D\uDEE1 %-3d\t♥️%-3d%%\t☠️%-3d\t    
+    //         " , 0,0 , armor,(int) hp * 100/maxHp, damage);
+    //     return outStr;
+
+    // }
 
     public Position getPosition() {
         return position;

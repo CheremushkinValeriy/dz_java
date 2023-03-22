@@ -14,6 +14,11 @@ public class Spear extends ShooterUnit {    //копейщик
         return "Spear";
     }
     
+    @Override
+	public String getName() {
+		return "Spear";
+	}
+    
 
     
 
