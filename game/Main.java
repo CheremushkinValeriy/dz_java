@@ -49,6 +49,7 @@ package game;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Random;
+import java.util.Scanner;
 
 import game.Class.BaseUnit;
 import game.Units.Crossbow;
@@ -62,44 +63,56 @@ import game.Units.Spear;
 public class Main {
 
     public static final int GANG_SIZE = 10;
-    public static ArrayList<BaseUnit> whiteSide = new ArrayList<>(); // В первом только крестьянин, разбойник, снайпер или колдун
-    public static ArrayList<BaseUnit> darkSide = new ArrayList<>(); // Во втором крестьянин, копейщик, арбалетчик, монах.
+    public static ArrayList<BaseUnit> whiteSide = new ArrayList<>(); // В первом только крестьянин, разбойник, снайпер
+                                                                     // или колдун
+    public static ArrayList<BaseUnit> darkSide = new ArrayList<>(); // Во втором крестьянин, копейщик, арбалетчик,
+                                                                    // монах.
 
+    // public static void main(String[] args) {
+    // Scanner sc = new Scanner(System.in);
+    // Init();
+
+    // while(true){
+    // ConsoleView.view();
+    // sc.nextLine();
+    // step();
+    // }
+    // }
     public static void main(String[] args) {
-        
-        
+
         ArrayList<BaseUnit> allList = new ArrayList<>(); // общий список для сортирвки по скорости
 
         for (int i = 0; i < GANG_SIZE; i++) { // заполнение whiteSide
             switch (new Random().nextInt(4)) {
                 case 0:
-                    whiteSide.add(new Peasant(getName(), i+1, 1));
+                    whiteSide.add(new Peasant(getName(), 1, i + 1));
                     break;
                 case 1:
-                    whiteSide.add(new Robber(getName(), i+1, 1));
+                    whiteSide.add(new Robber(getName(), 1, i + 1));
                     break;
                 case 2:
-                    whiteSide.add(new Sniper(getName(), i+1, 1));
+                    whiteSide.add(new Sniper(getName(), 1, i + 1));
                     break;
                 default:
-                    whiteSide.add(new Mag(getName(), i+1, 1));
+                    whiteSide.add(new Mag(getName(), 1, i + 1));
                     break;
             }
-            switch (new Random().nextInt(4)) {  // заполнение darkSide
+            switch (new Random().nextInt(4)) { // заполнение darkSide
                 case 0:
-                 darkSide.add(new Peasant(getName(), i+1, 10));
+                    darkSide.add(new Peasant(getName(), 10, i + 1));
                     break;
                 case 1:
-                 darkSide.add(new Spear(getName(), i+1, 10));
+                    darkSide.add(new Spear(getName(), 10, i + 1));
                     break;
                 case 2:
-                 darkSide.add(new Crossbow(getName(), i+1, 10));
+                    darkSide.add(new Crossbow(getName(), 10, i + 1));
                     break;
                 default:
-                 darkSide.add(new Monk(getName(), i+1, 10));
+                    darkSide.add(new Monk(getName(), 10, i + 1));
                     break;
             }
         }
+        ConsoleView.view();
 
         System.out.println("-------------\n   LIST 1:");
         for (BaseUnit unit : whiteSide) {
@@ -112,7 +125,6 @@ public class Main {
             System.out.printf(String.format("%s --- ", unit.getInfo()));
             unit.getName();
         }
-
 
         allList.addAll(whiteSide);
         allList.addAll(darkSide);
@@ -132,16 +144,15 @@ public class Main {
         });
         System.out.println(allList); // list после сортировки
 
-        whiteSide.forEach(u -> u.step (darkSide, whiteSide));
+        whiteSide.forEach(u -> u.step(darkSide, whiteSide));
 
-        // for (BaseUnit unit : whiteSide) {
-        //     System.out.printf("%d, %d\n", unit.position.x, unit.position.y);
-        // }
-    
-        // for (BaseUnit unit : darkSide) {
-        //     System.out.printf("%d, %d\n", unit.position.x, unit.position.y);
-        // }
+        for (BaseUnit unit : whiteSide) {
+            System.out.printf("%d, %d\n", unit.position.x, unit.position.y);
+        }
 
+        for (BaseUnit unit : darkSide) {
+            System.out.printf("%d, %d\n", unit.position.x, unit.position.y);
+        }
 
     }
 
