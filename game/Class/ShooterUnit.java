@@ -44,27 +44,24 @@ public abstract class ShooterUnit extends BaseUnit { // если класс яв
     // }
 
     @Override
-    public void step(ArrayList<BaseUnit> whiteSide, ArrayList<BaseUnit> darkSide){
+    public void step(ArrayList<BaseUnit> whiteSide, ArrayList<BaseUnit> darkSide) {
         if (this.protection > 0 && this.maxHp > 0) {
-    
+
             BaseUnit target = whiteSide.get(0);
             double minDistance = this.position.getDistance(whiteSide.get(0));
 
             for (BaseUnit unit : darkSide) {
-                if(this.position.getDistance(unit)<minDistance && unit.maxHp > 0){
+                if (this.position.getDistance(unit) < minDistance && unit.maxHp > 0) {
                     minDistance = this.position.getDistance(unit);
                     target = unit;
                 }
             }
-            if(this.position.getDistance(target)>= 10){
+            if (this.position.getDistance(target) >= 10) {
                 this.position.direction(target.position);
             }
             this.position.direction(target.position);
             this.attack(target, this.damage);
             this.protection--;
-            
-
-
 
         }
     }

@@ -29,8 +29,7 @@ public class Position {
                 this.x += 1;
             else
                 this.x -= 1;
-        } 
-        else if (this.y < position.y)
+        } else if (this.y < position.y)
             this.y += 1;
         else
             this.y -= 1;
@@ -39,20 +38,21 @@ public class Position {
     public double getDistance(BaseUnit baseUnit) {
         return 0;
     }
-    public boolean[] checkPos(ArrayList<BaseUnit> whiteSide){
+
+    public boolean[] checkPos(ArrayList<BaseUnit> whiteSide) {
         boolean[] temp = new boolean[4];
-        for(BaseUnit u : whiteSide){
-            if((u.position.x == this.x + 1) && (u.position.y == this.y)) 
+        for (BaseUnit u : whiteSide) {
+            if ((u.position.x == this.x + 1) && (u.position.y == this.y))
                 temp[0] = true;
-            if((u.position.x == this.x - 1) && (u.position.y == this.y)) 
+            if ((u.position.x == this.x - 1) && (u.position.y == this.y))
                 temp[1] = true;
-            if((u.position.x == this.x) && (u.position.y == this.y + 1)) 
+            if ((u.position.x == this.x) && (u.position.y == this.y + 1))
                 temp[2] = true;
-            if((u.position.x == this.x) && (u.position.y == this.y - 1)) 
+            if ((u.position.x == this.x) && (u.position.y == this.y - 1))
                 temp[3] = true;
         }
         return temp;
 
     }
- 
+
 }
