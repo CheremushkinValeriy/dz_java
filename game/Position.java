@@ -1,5 +1,7 @@
 package game;
 
+import java.util.ArrayList;
+
 import game.Class.BaseUnit;
 
 public class Position {
@@ -19,4 +21,38 @@ public class Position {
         return (position.x == this.x & position.y == this.y);
     }
 
+    public void direction(Position position) {
+        float dx = Math.abs(this.x - position.x);
+        float dy = Math.abs(this.y - position.y);
+        if (dx > dy) {
+            if (this.x < position.x)
+                this.x += 1;
+            else
+                this.x -= 1;
+        } 
+        else if (this.y < position.y)
+            this.y += 1;
+        else
+            this.y -= 1;
+    }
+
+    public double getDistance(BaseUnit baseUnit) {
+        return 0;
+    }
+    public boolean[] checkPos(ArrayList<BaseUnit> whiteSide){
+        boolean[] temp = new boolean[4];
+        for(BaseUnit u : whiteSide){
+            if((u.position.x == this.x + 1) && (u.position.y == this.y)) 
+                temp[0] = true;
+            if((u.position.x == this.x - 1) && (u.position.y == this.y)) 
+                temp[1] = true;
+            if((u.position.x == this.x) && (u.position.y == this.y + 1)) 
+                temp[2] = true;
+            if((u.position.x == this.x) && (u.position.y == this.y - 1)) 
+                temp[3] = true;
+        }
+        return temp;
+
+    }
+ 
 }
