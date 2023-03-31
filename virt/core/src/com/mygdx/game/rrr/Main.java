@@ -127,7 +127,7 @@ public class Main {
     }
 
     public static void Init() {
-        for (int i = 0; i < GANG_SIZE; i++) { // заполнение whiteSide
+        for (int i = 0; i > 0; i--) { // заполнение whiteSide
             switch (new Random().nextInt(4)) {
                 case 0:
                     whiteSide.add(new Peasant(getName(), 1, i + 1));
